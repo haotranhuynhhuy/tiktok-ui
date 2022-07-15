@@ -3,9 +3,15 @@
 
 :root {
   --primary: #fe2c55;
+  --default-heading-height: 60px;
+  --default-heading-width: 1150px;
+  --black: #000;
+  --text-color: #333;
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html {
   font-size: 62.5%;
@@ -15,4 +21,14 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
+}
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
+}
+a[href] {
+  color: var(--text-color);
+  text-decoration: none;
 }
