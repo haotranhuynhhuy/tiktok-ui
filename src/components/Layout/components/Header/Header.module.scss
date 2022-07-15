@@ -16,9 +16,12 @@
   align-items: center;
   justify-content: space-between;
 }
+.search,
+.search-result {
+  width: 361px;
+}
 .search {
   position: relative;
-  width: 361px;
   height: var(--search-height);
   background-color: rgba(22, 24, 35, 0.06);
   border-radius: var(--search-border-radius);
@@ -73,4 +76,10 @@
   &:active {
     background-color: rgba(22, 24, 35, 0.06);
   }
+}
+.search-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  color: rgba(22, 24, 35, 0.5);
 }
