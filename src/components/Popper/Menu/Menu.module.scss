@@ -1,0 +1,43 @@
+// Menu wrapper
+.menu-list {
+  width: 256px;
+  //Menu item
+  .menu-items {
+    margin-left: 0;
+    cursor: pointer;
+  }
+}
+
+.menu-popper {
+  padding-bottom: 8px;
+}
+
+.menu-items {
+  width: 100%;
+  justify-content: flex-start;
+  line-height: 1.8rem;
+  border-radius: 0;
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+.header {
+  position: relative;
+  height: 50px;
+  margin-top: -8px;
+}
+.back-btn {
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

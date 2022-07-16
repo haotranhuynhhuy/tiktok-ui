@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 var(--default-layout-horizontal);
 }
 .search,
 .search-result {
@@ -82,4 +83,29 @@
   font-weight: 600;
   padding: 5px 12px;
   color: rgba(22, 24, 35, 0.5);
+}
+.action {
+  display: flex;
+  align-items: center;
+}
+.more-btn {
+  font-size: 2rem;
+  background-color: transparent;
+  padding: 4px 8px;
+  margin-left: 18px;
+  cursor: pointer;
+}
+.action-btn {
+  font-size: 2.2rem;
+  padding: 4px 12px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 12px;
+  cursor: pointer;
 }

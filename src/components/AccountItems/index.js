@@ -8,7 +8,7 @@ function AccountItems() {
     <div className={cs("wrapper")}>
       <img
         className={cs("avatar")}
-        src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-9/178650195_629558188000336_2324268937855998971_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_aid=0&_nc_ohc=Bx9jix3spVIAX-yx8Qw&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT8mAgN-WDKL5JzwBp1MfoXkKmHQVI5qidRwsYI7LenTcA&oe=62F50434"
+        src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.6435-9/76200950_148451219867779_5947633315220553728_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=2TpszzW1wjIAX8tZQnQ&_nc_ht=scontent.fsgn2-4.fna&oh=00_AT_aeD2AoGz1HMLnC7r3L8dViNJcWrLl8hioUFVedDRwtQ&oe=62F9A078"
         alt="Anh"
       />
       <div className={cs("infor")}>

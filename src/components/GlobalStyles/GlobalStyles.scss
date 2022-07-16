@@ -8,6 +8,7 @@
   --black: #000;
   --white: #fff;
   --text-color: #333;
+  --default-layout-horizontal: 24px;
 }
 * {
   box-sizing: border-box;
@@ -32,4 +33,23 @@ input,
 a[href] {
   color: var(--text-color);
   text-decoration: none;
+}
+//custom tippy
+body {
+  .tippy-box {
+    background-color: rgba(84, 84, 84, 0.92);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    border-radius: 8px;
+  }
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
+  .tippy-content {
+    padding: 8px 9px;
+  }
+  .tippy-box[data-placement^="bottom"] > .tippy-arrow::before {
+    top: -8px;
+  }
 }
