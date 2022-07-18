@@ -92,15 +92,20 @@
   font-size: 2rem;
   background-color: transparent;
   padding: 4px 8px;
-  margin-left: 18px;
+  margin-left: 28px;
   cursor: pointer;
 }
 .action-btn {
+  position: relative;
+  display: flex;
   font-size: 2.2rem;
-  padding: 4px 12px;
+  padding: 4px 10px;
+  color: #161823;
   background-color: transparent;
+  margin: 6px 12px 0;
   cursor: pointer;
 }
+
 .user-avatar {
   width: 32px;
   height: 32px;
