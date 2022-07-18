@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
-import HeadlessTippy from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
 
 import Buttons from "../../../Buttons";
-import { Wrapper as PopperWrapper } from "../../../../components/Popper";
 import images from "../../../../assets/images";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCircleXmark,
-  faSpinner,
-  faMagnifyingGlass,
   faPlus,
   faEllipsisVertical,
   faEarthAsia,
@@ -23,10 +18,10 @@ import {
   faCoins,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
-import AccountItems from "../../../AccountItems";
 import Menu from "../../../Popper/Menu";
-import { MessageIcon, UploadIcon } from "../../../Icons";
+import { MessageIcon, UploadIcon, InboxIcon } from "../../../Icons";
 import Image from "../../../../Image";
+import Search from "../../Search";
 
 const cs = classNames.bind(styles);
 function Header() {
@@ -85,37 +80,12 @@ function Header() {
     },
   ];
 
-  const [searchResult, setSearchResult] = useState([]);
-  useEffect(() => {
-    setSearchResult([1, 2, 3]);
-  }, []);
   return (
     <header className={cs("wrapper")}>
       <div className={cs("inner")}>
         <img src={images.logo} alt="Tiktok" />
-        <HeadlessTippy
-          interactive
-          visible={searchResult.length > 0}
-          render={(attr) => (
-            <div className={cs("search-result")} tabIndex="-1" {...attr}>
-              <PopperWrapper>
-                <h4 className={cs("search-title")}>Account</h4>
-                <AccountItems />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cs("search")}>
-            <input placeholder="Search accounts and videos" />
-            <button className={cs("clear")}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={cs("loading")} icon={faSpinner} />
-            <button className={cs("search-btn")}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </HeadlessTippy>
+        {/* Searchingggggggg */}
+        <Search />
         <div className={cs("action")}>
           {currentUser ? (
             <>
@@ -126,7 +96,17 @@ function Header() {
               >
                 <button className={cs("action-btn")}>
                   <UploadIcon />
+                </button>
+              </Tippy>
+              <Tippy delay={[0, 250]} content="Message" placement="bottom">
+                <button className={cs("action-btn")}>
                   <MessageIcon />
+                </button>
+              </Tippy>
+              <Tippy delay={[0, 250]} content="Message" placement="bottom">
+                <button className={cs("action-btn")}>
+                  <InboxIcon />
+                  <span className={cs("badge")}></span>
                 </button>
               </Tippy>
             </>
