@@ -7,6 +7,7 @@
   --white: #fff;
   --text-color: #333;
   --default-layout-horizontal: 24px;
+  --font-family: "ProximaNova", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -17,7 +18,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: "ProximaNova", sans-serif;
+  font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;

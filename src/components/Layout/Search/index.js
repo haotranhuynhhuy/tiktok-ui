@@ -40,8 +40,9 @@ function Search() {
     // }, [debounce]);
     const fetchApi = async () => {
       setIsLoading(true);
+      //lấy API
       const res = await searchService.search(debounce);
-      console.log(res);
+
       setSearchResult(res.data);
       setIsLoading(false);
     };
@@ -50,50 +51,62 @@ function Search() {
   const handleHideResult = () => {
     setShowResult(false);
   };
+
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(" ")) {
+      setSearchValue(searchValue);
+    }
+  };
   return (
-    <HeadlessTippy
-      interactive
-      visible={showResult && searchResult.length > 0}
-      render={(attr) => (
-        <div className={cs("search-result")} tabIndex="-1" {...attr}>
-          <PopperWrapper>
-            <h4 className={cs("search-title")}>Account</h4>
-            {searchResult.map((result) => {
-              return <AccountItems key={result.id} data={result} />;
-            })}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handleHideResult}
-    >
-      {/* tìm kiếm */}
-      <div className={cs("search")}>
-        <input
-          ref={searchRef}
-          value={searchValue}
-          placeholder="Search accounts and videos"
-          onChange={(e) => setSearchValue(e.target.value)}
-          onFocus={() => setShowResult(true)}
-        />
-        {searchValue && !isLoading && (
+    <div>
+      <HeadlessTippy
+        interactive
+        visible={showResult && searchResult.length > 0}
+        render={(attr) => (
+          <div className={cs("search-result")} tabIndex="-1" {...attr}>
+            <PopperWrapper>
+              <h4 className={cs("search-title")}>Account</h4>
+              {searchResult.map((result) => {
+                return <AccountItems key={result.id} data={result} />;
+              })}
+            </PopperWrapper>
+          </div>
+        )}
+        onClickOutside={handleHideResult}
+      >
+        {/* tìm kiếm */}
+        <div className={cs("search")}>
+          <input
+            ref={searchRef}
+            value={searchValue}
+            placeholder="Search accounts and videos"
+            onChange={handleChange}
+            onFocus={() => setShowResult(true)}
+          />
+          {searchValue && !isLoading && (
+            <button
+              className={cs("clear")}
+              onClick={() => {
+                setSearchValue("");
+                searchRef.current.focus();
+              }}
+            >
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          )}
+          {isLoading && (
+            <FontAwesomeIcon className={cs("loading")} icon={faSpinner} />
+          )}
           <button
-            className={cs("clear")}
-            onClick={() => {
-              setSearchValue("");
-              searchRef.current.focus();
-            }}
+            className={cs("search-btn")}
+            onMouseDown={(e) => e.preventDefault()}
           >
-            <FontAwesomeIcon icon={faCircleXmark} />
+            <SearchIcon />
           </button>
-        )}
-        {isLoading && (
-          <FontAwesomeIcon className={cs("loading")} icon={faSpinner} />
-        )}
-        <button className={cs("search-btn")}>
-          <SearchIcon />
-        </button>
-      </div>
-    </HeadlessTippy>
+        </div>
+      </HeadlessTippy>
+    </div>
   );
 }
 

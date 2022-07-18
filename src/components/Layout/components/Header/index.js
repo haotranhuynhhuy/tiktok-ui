@@ -22,6 +22,8 @@ import Menu from "../../../Popper/Menu";
 import { MessageIcon, UploadIcon, InboxIcon } from "../../../Icons";
 import Image from "../../../../Image";
 import Search from "../../Search";
+import { Link } from "react-router-dom";
+import routeConfig from "../../../../config/route";
 
 const cs = classNames.bind(styles);
 function Header() {
@@ -33,6 +35,54 @@ function Header() {
       children: {
         title: "Language",
         data: [
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
           {
             code: "en",
             title: "English",
@@ -75,7 +125,7 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faSignOut} />,
       title: "Log out",
-      to: "/",
+      to: routeConfig.home,
       separate: true,
     },
   ];
@@ -83,7 +133,9 @@ function Header() {
   return (
     <header className={cs("wrapper")}>
       <div className={cs("inner")}>
-        <img src={images.logo} alt="Tiktok" />
+        <Link to={routeConfig.home} className={cs("logo-link")}>
+          <img src={images.logo} alt="Tiktok" />
+        </Link>
         {/* Searchingggggggg */}
         <Search />
         <div className={cs("action")}>
