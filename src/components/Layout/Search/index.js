@@ -7,7 +7,7 @@ import AccountItems from "../../AccountItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { SearchIcon } from "../../Icons";
-
+import { useDebounce } from "../../../hooks";
 const cs = classNames.bind(styles);
 function Search() {
   const [searchValue, setSearchValue] = useState("");
@@ -15,8 +15,10 @@ function Search() {
   const [showResult, setShowResult] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const searchRef = useRef();
+
+  const debounce = useDebounce(searchValue, 700);
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounce.trim()) {
       setSearchResult([]);
       return;
     }
@@ -25,7 +27,7 @@ function Search() {
     fetch(
       // encodeURIComponent là tránh nhập kí tự đặc biệt trong input
       `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        searchValue
+        debounce
       )}&type=less`
     )
       .then((res) => res.json())
@@ -36,7 +38,7 @@ function Search() {
       .catch(() => {
         setIsLoading(false);
       });
-  }, [searchValue]);
+  }, [debounce]);
 
   const handleHideResult = () => {
     setShowResult(false);
