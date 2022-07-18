@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { SearchIcon } from "../../Icons";
 import { useDebounce } from "../../../hooks";
+import * as searchService from "../../../apiServices/searchService";
 const cs = classNames.bind(styles);
 function Search() {
   const [searchValue, setSearchValue] = useState("");
@@ -22,24 +23,30 @@ function Search() {
       setSearchResult([]);
       return;
     }
-    setIsLoading(true);
-
-    fetch(
-      // encodeURIComponent là tránh nhập kí tự đặc biệt trong input
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounce
-      )}&type=less`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-      });
+    //   fetch(
+    //     // encodeURIComponent là tránh nhập kí tự đặc biệt trong input
+    //     `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+    //       debounce
+    //     )}&type=less`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((res) => {
+    //       setSearchResult(res.data);
+    //       setIsLoading(false);
+    //     })
+    //     .catch(() => {
+    //       setIsLoading(false);
+    //     });
+    // }, [debounce]);
+    const fetchApi = async () => {
+      setIsLoading(true);
+      const res = await searchService.search(debounce);
+      console.log(res);
+      setSearchResult(res.data);
+      setIsLoading(false);
+    };
+    fetchApi();
   }, [debounce]);
-
   const handleHideResult = () => {
     setShowResult(false);
   };
