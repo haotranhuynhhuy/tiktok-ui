@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
 
-import Buttons from "../../../Buttons";
-import images from "../../../../assets/images";
+import Buttons from "../../../components/Buttons";
+import images from "../../../assets/images";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -18,12 +17,12 @@ import {
   faCoins,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
-import Menu from "../../../Popper/Menu";
-import { MessageIcon, UploadIcon, InboxIcon } from "../../../Icons";
-import Image from "../../../../Image";
+import Menu from "../../../components/Popper/Menu";
+import { MessageIcon, UploadIcon, InboxIcon } from "../../../components/Icons";
+import Image from "../../../Image";
 import Search from "../../Search";
 import { Link } from "react-router-dom";
-import routeConfig from "../../../../config/route";
+import config from "../../../config";
 
 const cs = classNames.bind(styles);
 function Header() {
@@ -125,7 +124,7 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faSignOut} />,
       title: "Log out",
-      to: routeConfig.home,
+      to: config.routes.home,
       separate: true,
     },
   ];
@@ -133,7 +132,7 @@ function Header() {
   return (
     <header className={cs("wrapper")}>
       <div className={cs("inner")}>
-        <Link to={routeConfig.home} className={cs("logo-link")}>
+        <Link to={config.routes.home} className={cs("logo-link")}>
           <img src={images.logo} alt="Tiktok" />
         </Link>
         {/* Searchingggggggg */}
@@ -158,7 +157,7 @@ function Header() {
               <Tippy delay={[0, 250]} content="Message" placement="bottom">
                 <button className={cs("action-btn")}>
                   <InboxIcon />
-                  <span className={cs("badge")}></span>
+                  <span className={cs("badge")}>12</span>
                 </button>
               </Tippy>
             </>

@@ -2,14 +2,14 @@ import Home from "../pages/Home";
 import Following from "../pages/Following";
 import Profile from "../pages/Profile";
 import Upload from "../pages/Upload";
-import { HeaderOnlyLaybout } from "../components/Layout";
-import routeConfig from "../config/route";
+import { HeaderOnlyLaybout } from "../layouts";
+import config from "../config";
 const publicRoutes = [
-  { path: routeConfig.home, component: Home },
-  { path: routeConfig.following, component: Following },
-  { path: routeConfig.profile, component: Profile },
-  { path: routeConfig.upload, component: Upload, layout: HeaderOnlyLaybout },
+  { path: config.routes.home, component: Home },
+  { path: config.routes.following, component: Following },
+  { path: config.routes.profile, component: Profile },
+  { path: config.routes.upload, component: Upload, layout: HeaderOnlyLaybout },
 ];
-const privateRoutes = [];
+// const privateRoutes = [];
 
 export { publicRoutes };
