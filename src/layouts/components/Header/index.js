@@ -19,7 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../../../components/Popper/Menu";
 import { MessageIcon, UploadIcon, InboxIcon } from "../../../components/Icons";
-import Image from "../../../Image";
+import Image from "../../../components/Image";
 import Search from "../../Search";
 import { Link } from "react-router-dom";
 import config from "../../../config";
@@ -53,42 +53,6 @@ function Header() {
           {
             code: "en",
             title: "English",
-          },
-          {
-            code: "vi",
-            title: "Tiếng Việt",
-          },
-          {
-            code: "en",
-            title: "English",
-          },
-          {
-            code: "vi",
-            title: "Tiếng Việt",
-          },
-          {
-            code: "en",
-            title: "English",
-          },
-          {
-            code: "vi",
-            title: "Tiếng Việt",
-          },
-          {
-            code: "en",
-            title: "English",
-          },
-          {
-            code: "vi",
-            title: "Tiếng Việt",
-          },
-          {
-            code: "en",
-            title: "English",
-          },
-          {
-            code: "vi",
-            title: "Tiếng Việt",
           },
         ],
       },
@@ -128,6 +92,15 @@ function Header() {
       separate: true,
     },
   ];
+
+  const handleMenuChange = (menuItem) => {
+    switch (menuItem.type) {
+      case 'language':
+        break;
+      default:
+        break;
+    }
+  }
 
   return (
     <header className={cs("wrapper")}>
@@ -169,13 +142,13 @@ function Header() {
               <Buttons primary>Log in</Buttons>
             </>
           )}
-          <Menu items={currentUser ? MENU_USER_ITEMS : MENU_ITEMS}>
+          <Menu items={currentUser ? MENU_USER_ITEMS : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
               <Image
                 src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/291320840_114880147922667_7541122576818673587_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=4A497-GQvVwAX926vqF&_nc_ht=scontent.fsgn2-3.fna&oh=00_AT_zr-OZoIqr_14glwoAheB97N_6Iblh8T45k7yfq6tJLQ&oe=62D8191E"
                 className={cs("user-avatar")}
                 alt="Anh"
-                // fallback="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-9/178650195_629558188000336_2324268937855998971_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_aid=0&_nc_ohc=5QZnJE8kfiUAX_4Q0xs&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT9jKVsmz-QA4nLh0DWlH8Trfbbh2N64TrFzj1dcdJy8Iw&oe=62F8F8B4"
+              // fallback="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-9/178650195_629558188000336_2324268937855998971_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_aid=0&_nc_ohc=5QZnJE8kfiUAX_4Q0xs&_nc_ht=scontent.fsgn2-2.fna&oh=00_AT9jKVsmz-QA4nLh0DWlH8Trfbbh2N64TrFzj1dcdJy8Iw&oe=62F8F8B4"
               />
             ) : (
               <>

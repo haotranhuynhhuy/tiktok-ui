@@ -2,6 +2,7 @@
 .search-result {
   width: 361px;
 }
+
 .search {
   position: relative;
   height: var(--search-height);
@@ -10,6 +11,7 @@
   padding-left: 16px;
   display: flex;
   border: 1.5px solid transparent;
+
   input {
     height: 100%;
     flex: 1;
@@ -18,12 +20,15 @@
     background-color: transparent;
     caret-color: var(--primary);
     font-family: var(--font-family);
+    padding-right: 40px;
   }
+
   // stack-overlow về not:placeholder-shown
   // ~ để chỉ về selector cần thay đổi
-  input:not(:placeholder-shown) ~ .search-btn {
+  input:not(:placeholder-shown)~.search-btn {
     color: rgba(22, 24, 35, 0.75);
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -33,15 +38,18 @@
     height: calc(var(--search-height) - var(--search-top-spacer) * 2);
     background-color: rgba(22, 24, 35, 0.12);
   }
+
   &:focus-within {
     border-color: rgba(22, 24, 35, 0.2);
   }
 }
+
 .clear,
 .loading {
   position: absolute;
   right: calc(var(--search-button-width) + 9px);
   top: 50%;
+  margin-right: 5px;
   transform: translateY(-50%);
   color: rgba(22, 24, 35, 0.34);
   cursor: pointer;
@@ -50,14 +58,17 @@
 .loading {
   animation: spinner 0.8s linear infinite;
 }
+
 @keyframes spinner {
   from {
     transform: translateY(-50%) rotate(0);
   }
+
   to {
     transform: translateY(-50%) rotate(360deg);
   }
 }
+
 .search-btn {
   width: 52px;
   height: 100%;
@@ -65,14 +76,17 @@
   border-bottom-right-radius: var(--search-border-radius);
   font-size: 1.8rem;
   color: rgba(22, 24, 35, 0.34);
+
   &:hover {
     cursor: pointer;
     background-color: rgba(22, 24, 35, 0.03);
   }
+
   &:active {
     background-color: rgba(22, 24, 35, 0.06);
   }
 }
+
 .search-title {
   font-size: 1.4rem;
   font-weight: 600;

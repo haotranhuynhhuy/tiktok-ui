@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import PropTypes from 'prop-types';
 
 function Layout({ children }) {
   return (
@@ -9,6 +10,9 @@ function Layout({ children }) {
       </div>
     </div>
   );
+}
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
 export default Layout;

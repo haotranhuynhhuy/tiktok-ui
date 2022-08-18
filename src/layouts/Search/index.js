@@ -17,17 +17,17 @@ function Search() {
   const [isLoading, setIsLoading] = useState(false);
   const searchRef = useRef();
 
-  const debounce = useDebounce(searchValue, 700);
+  const debounceValue = useDebounce(searchValue, 700);
 
   useEffect(() => {
-    if (!debounce.trim()) {
+    if (!debounceValue.trim()) {
       setSearchResult([]);
       return;
     }
     //   fetch(
     //     // encodeURIComponent là tránh nhập kí tự đặc biệt trong input
     //     `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-    //       debounce
+    //       debounceValue
     //     )}&type=less`
     //   )
     //     .then((res) => res.json())
@@ -38,17 +38,17 @@ function Search() {
     //     .catch(() => {
     //       setIsLoading(false);
     //     });
-    // }, [debounce]);
+    // }, [debounceValue]);
     const fetchApi = async () => {
       setIsLoading(true);
       //lấy API
-      const res = await searchService.search(debounce);
+      const res = await searchService.search(debounceValue);
 
       setSearchResult(res.data);
       setIsLoading(false);
     };
     fetchApi();
-  }, [debounce]);
+  }, [debounceValue]);
   const handleHideResult = () => {
     setShowResult(false);
   };
