@@ -20,7 +20,7 @@ import {
 import Menu from "../../../components/Popper/Menu";
 import { MessageIcon, UploadIcon, InboxIcon } from "../../../components/Icons";
 import Image from "../../../components/Image";
-import Search from "../../Search";
+import Search from "../../components/Search";
 import { Link } from "react-router-dom";
 import config from "../../../config";
 

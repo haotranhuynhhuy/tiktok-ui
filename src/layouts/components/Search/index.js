@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import HeadlessTippy from "@tippyjs/react/headless";
 import styles from "./Search.module.scss";
 import classNames from "classnames/bind";
-import { Wrapper as PopperWrapper } from "../../components/Popper";
-import AccountItems from "../../components/AccountItems";
+import { Wrapper as PopperWrapper } from "../../../components/Popper";
+import AccountItems from "../../../components/AccountItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { SearchIcon } from "../../components/Icons";
-import { useDebounce } from "../../hooks";
-import * as searchService from "../../services/searchService";
+import { SearchIcon } from "../../../components/Icons";
+import { useDebounce } from "../../../hooks";
+import * as searchService from "../../../services/searchService";
 const cs = classNames.bind(styles);
 function Search() {
   const [searchValue, setSearchValue] = useState("");
